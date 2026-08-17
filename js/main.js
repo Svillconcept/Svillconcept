@@ -49,75 +49,68 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
-  /* ---------- Gallery ---------- */
-  var PROJECTS = {
-    kueche: [
-      "Grifflose Küche in Beton-Optik mit Marmor",
-      "L-Küche in Weiß mit Naturstein-Arbeitsplatte",
-      "Elegante Kücheninsel in Anthrazit",
-      "Puristische Küche mit Holz-Rückwand",
-      "Küche in Creme mit beleuchteten Glasvitrinen",
-      "Kücheninsel mit integriertem Barbereich",
-      "Kücheninsel mit Pendelleuchten",
-      "Grifflose Küche in Creme mit schwarzem Becken",
-      "U-Küche in Weiß mit Holz-Arbeitsplatte",
-      "Wohnküche mit Weinregal und Essplatz",
-      "Kücheninsel mit Marmor & Designleuchten",
-      "Moderne Kücheninsel in Anthrazit",
-      "Küche mit Marmorinsel und Pendelleuchten",
-      "Küche in Holzoptik mit Steinarbeitsplatte"
-    ],
-    bad: [
-      "Badmöbel in Grau mit Holz & Marmor",
-      "Doppelwaschtisch mit schwarzen Aufsatzbecken",
-      "Badezimmer mit indirekter Beleuchtung",
-      "Bad-Detail in Beton-Optik",
-      "Waschtischanlage mit Spiegelschrank",
-      "Badmöbel vor Marmorwand",
-      "Ablage-Detail vor Sichtbeton",
-      "Badmöbel mit schwarzem Marmor",
-      "Waschtisch mit offenen Regalfächern",
-      "Bad mit integriertem Waschturm in Marmoroptik"
-    ],
-    wohnen: [
-      "Wohnwand mit beleuchteter Holznische",
-      "Einbauschrank unter Dachschräge",
-      "Garderobe mit rundem LED-Spiegel",
-      "Schlafzimmer im Loft-Stil",
-      "Flurmöbel mit beleuchtetem Spiegel",
-      "Luxus-Schlafzimmer mit Marmorwand",
-      "Wohnzimmer mit Holzlamellen-Wand",
-      "Jugendzimmer mit Einbauschrank",
-      "Wohnwand mit TV in Weiß",
-      "Wohnwand mit integriertem Aquarium",
-      "Wohnzimmer mit Marmor-Kamin und TV-Wand"
-    ]
-  };
+  /* ---------- Gallery ----------
+     Each project lists its own image file + category, so category is
+     independent of the filename (fixes any mis-sorted images).            */
+  var PROJECTS = [
+    // ---- Küchen ----
+    { img: "kueche-01", cat: "kueche", title: "Grifflose Küche in Beton-Optik mit Kochinsel" },
+    { img: "kueche-03", cat: "kueche", title: "Kücheninsel in Anthrazit mit Side-by-Side" },
+    { img: "kueche-02", cat: "kueche", title: "Grifflose L-Küche in Weiß mit schwarzer Arbeitsplatte" },
+    { img: "kueche-13", cat: "kueche", title: "Küche in Holzoptik mit Steinarbeitsplatte" },
+    { img: "kueche-14", cat: "kueche", title: "Grifflose Küche in Holzoptik mit Kochinsel" },
+    { img: "kueche-04", cat: "kueche", title: "Puristische Küche in Weiß mit Holz-Rückwand" },
+    { img: "kueche-05", cat: "kueche", title: "Küche in Creme mit beleuchteten Glasvitrinen" },
+    { img: "kueche-06", cat: "kueche", title: "Offene Küche in Anthrazit mit Barinsel" },
+    { img: "kueche-09", cat: "kueche", title: "U-Küche in Weiß mit Holz-Arbeitsplatte" },
+    { img: "kueche-12", cat: "kueche", title: "Offene Küche mit Marmorinsel und Designleuchten" },
+    { img: "bad-06",    cat: "kueche", title: "Kücheninsel in Beton-Optik mit Marmorwand" },
+    { img: "bad-07",    cat: "kueche", title: "Grifflose Küche in Creme mit schwarzem Becken" },
+    // ---- Bäder ----
+    { img: "bad-01", cat: "bad", title: "Badmöbel in Grau & Holz mit Marmorwand" },
+    { img: "bad-02", cat: "bad", title: "Doppelwaschtisch mit schwarzen Aufsatzbecken" },
+    { img: "bad-03", cat: "bad", title: "Waschtisch mit beleuchteten Spiegeln" },
+    { img: "bad-05", cat: "bad", title: "Waschtischanlage mit Spiegelschrank" },
+    { img: "bad-08", cat: "bad", title: "Doppelwaschtisch mit schwarzem Marmor" },
+    { img: "bad-09", cat: "bad", title: "Schwebender Waschtisch mit offenen Fächern" },
+    { img: "bad-10", cat: "bad", title: "Bad mit integriertem Waschturm in Marmoroptik" },
+    { img: "bad-04", cat: "bad", title: "Ablage-Detail vor Sichtbeton" },
+    // ---- Wohnen & Schränke ----
+    { img: "wohnen-01", cat: "wohnen", title: "Wohnwand mit beleuchteter Holznische" },
+    { img: "wohnen-11", cat: "wohnen", title: "Wohnzimmer mit Marmor-Kamin und TV-Wand" },
+    { img: "wohnen-07", cat: "wohnen", title: "Wohnzimmer mit Holzlamellen-Wand" },
+    { img: "kueche-10", cat: "wohnen", title: "Wohnwand mit TV in Weiß" },
+    { img: "kueche-11", cat: "wohnen", title: "Wohnwand mit integriertem Aquarium" },
+    { img: "kueche-07", cat: "wohnen", title: "Einbau-Weinbar mit Weinregal" },
+    { img: "wohnen-02", cat: "wohnen", title: "Einbauschrank unter Dachschräge" },
+    { img: "wohnen-08", cat: "wohnen", title: "Jugendzimmer mit Einbauschrank" },
+    { img: "wohnen-03", cat: "wohnen", title: "Garderobe mit rundem LED-Spiegel" },
+    { img: "wohnen-05", cat: "wohnen", title: "Flurmöbel mit beleuchtetem Rundspiegel" },
+    { img: "wohnen-09", cat: "wohnen", title: "Ankleide-Flur mit Sichtbeton-Säule" },
+    { img: "wohnen-04", cat: "wohnen", title: "Schlafzimmer im Loft-Stil" },
+    { img: "wohnen-06", cat: "wohnen", title: "Luxus-Schlafzimmer mit Marmorwand" }
+  ];
   var CAT_LABEL = { kueche: "Küchen", bad: "Bäder", wohnen: "Wohnen & Schränke" };
-  var CAT_ORDER = ["kueche", "bad", "wohnen"];
 
   var grid = document.getElementById("grid");
-  var items = []; // {el, cat, title, src, index}
+  var items = []; // {el, cat, title, src}
   if (grid) {
-    CAT_ORDER.forEach(function (cat) {
-      PROJECTS[cat].forEach(function (title, i) {
-        var n = String(i + 1).padStart(2, "0");
-        var src = "images/gallery/" + cat + "-" + n + ".jpg";
-        var fig = document.createElement("button");
-        fig.type = "button";
-        fig.className = "tile";
-        fig.setAttribute("data-cat", cat);
-        fig.setAttribute("aria-label", title + " vergrößern");
-        fig.innerHTML =
-          '<img src="' + src + '" alt="' + title + ' – SVILL CONCEPT" loading="lazy" decoding="async">' +
-          '<span class="tile__zoom" aria-hidden="true">' + iconExpand() + '</span>' +
-          '<span class="tile__overlay"><span class="tile__cat">' + CAT_LABEL[cat] + '</span>' +
-          '<span class="tile__title">' + title + '</span></span>';
-        grid.appendChild(fig);
-        var obj = { el: fig, cat: cat, title: title, src: src };
-        items.push(obj);
-        fig.addEventListener("click", function () { openLightbox(obj); });
-      });
+    PROJECTS.forEach(function (p) {
+      var src = "images/gallery/" + p.img + ".jpg";
+      var fig = document.createElement("button");
+      fig.type = "button";
+      fig.className = "tile";
+      fig.setAttribute("data-cat", p.cat);
+      fig.setAttribute("aria-label", p.title + " vergrößern");
+      fig.innerHTML =
+        '<img src="' + src + '" alt="' + p.title + ' – SVILL CONCEPT" loading="lazy" decoding="async">' +
+        '<span class="tile__zoom" aria-hidden="true">' + iconExpand() + '</span>' +
+        '<span class="tile__overlay"><span class="tile__cat">' + CAT_LABEL[p.cat] + '</span>' +
+        '<span class="tile__title">' + p.title + '</span></span>';
+      grid.appendChild(fig);
+      var obj = { el: fig, cat: p.cat, title: p.title, src: src };
+      items.push(obj);
+      fig.addEventListener("click", function () { openLightbox(obj); });
     });
     // reveal observe for freshly created tiles
     if ("IntersectionObserver" in window) {
